@@ -1,0 +1,28 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <input type="hidden" name="clientId" #clientId="ngModel" [(ngModel)]="service.formData.clientId">
+  <div class="form-group">
+    <label>FULL NAME</label>
+    <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" class="form-control" required>
+    <div class="validation-error" *ngIf="fullName.invalid && fullName.touched">This field is required.</div>
+  </div>
+  <div class="form-group">
+    <label>IDENTIFICATION</label>
+    <input name="identification" #identification="ngModel" [(ngModel)]="service.formData.identification" class="form-control">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>ADDRESS</label>
+      <input name="address" #address="ngModel" [(ngModel)]="service.formData.address" class="form-control">
+    </div>
+    <div class="form-group  col-md-6">
+      <label>TELEPHONE</label>
+      <input name="telephone" #telephone="ngModel" [(ngModel)]="service.formData.telephone" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+  </div>
+  <div class="form-group" [hidden]="form.invalid">
+    <button type="submit" class="btn btn-lg btn-block">CREATE ACCOUNT</button>
+  </div>
+</form>

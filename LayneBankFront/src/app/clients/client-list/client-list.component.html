@@ -1,0 +1,15 @@
+<table class="table table-hover">
+  <tr>
+      <th>Identification</th>
+      <th>Full Name</th>
+      <th>Address</th>
+      <th>Telephone</th>
+  </tr>
+  <tr *ngFor="let clie of clientService.list?.results" (click)="populateForm(clie)">
+    <td >{{clie.identification}}</td>
+    <td >{{clie.fullName}}</td>
+    <td >{{clie.address}}</td>
+    <td >{{clie.telephone}}</td>
+    <td><button (click)="onDelete(clie.clientId)" class="btn btn-sm btn-outline-danger">X</button></td>
+  </tr>
+</table>
